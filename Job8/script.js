@@ -1,6 +1,6 @@
 function estPremier(nombre) {
   if (nombre < 2) {
-    return false; //0 et 1 sont des nombres négatifs qui ne sont pas premiers
+    return false; //0, 1 et les nombres négatifs ne sont pas premiers
   }
 
   if (nombre === 2) {
@@ -13,16 +13,35 @@ function estPremier(nombre) {
 
   for (let i = 3 ; i <= Math.sqrt(nombre) ; i += 2) {
     if (nombre % i === 0 ) {
-      return true;
+      return false;
     }
   }
 
-  return "aucun diviseur trouvé";
+  return true;
 }
 
-console.log(estPremier(6));
-console.log(estPremier(2));
-console.log(estPremier(68));
-console.log(estPremier(45));
-console.log(estPremier(122));
-console.log(estPremier(987));
+function sommesNombresPremiers(a, b) {
+  if (estPremier(a) && estPremier(b)) {
+    return a + b ;
+  } else {
+    return false;
+  }
+}
+
+// Test simples 
+
+console.log(sommesNombresPremiers(3, 5));
+console.log(sommesNombresPremiers(7, 11));
+console.log(sommesNombresPremiers(4, 5));
+console.log(sommesNombresPremiers(3, 9));
+console.log(sommesNombresPremiers(4, 6));
+console.log(sommesNombresPremiers(9, 16));
+
+// TEST avec les limites
+
+console.log(sommesNombresPremiers(1, 2));
+console.log(sommesNombresPremiers(2, 2));
+console.log(sommesNombresPremiers(2, 3));
+console.log(sommesNombresPremiers(0, 5));
+console.log(sommesNombresPremiers(-5, 2));
+console.log(sommesNombresPremiers(-5, 7));
