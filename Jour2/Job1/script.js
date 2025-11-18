@@ -1,7 +1,7 @@
 function citation() {
     let article = document.querySelector("#citation");
     let texte = article.textContent;
-    console.log(texte);
+    console.log("Citation : " + texte);
 }
 
 let bouton = document.querySelector("#button");
