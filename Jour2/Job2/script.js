@@ -21,7 +21,7 @@ function showHide () {
   nouvelArticle.style.opacity = "0";
   nouvelArticle.style.transition = "opacity 0.5s";
  // 3) J'ajoute l'élément à la page
-  document.body.appendChild(nouvelArticle); // L'ajoute à la fin du <bod
+  document.body.appendChild(nouvelArticle); // L'ajoute à la fin du <body>
 
   setTimeout(() => {
     nouvelArticle.style.opacity = "1";
