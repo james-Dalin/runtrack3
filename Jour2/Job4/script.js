@@ -12,7 +12,7 @@ document.addEventListener("keydown", function(event) {
 
     // 4) Vérifier si le textarea à le focus
     let aLeFocus = document.activeElement === textArea;
-    
+
     event.preventDefault();
 
     // 5) Ajouter la lettre (1 ou 2 fois selon le focus)
