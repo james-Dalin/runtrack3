@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: all 0.5s ease;
+}
+
+h1 {
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+/* Style après activation du code Konami */
+body.konami-active {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+}
+
+body.konami-active h1 {
+    color: #00d9ff;
+    font-size: 48px;
+    text-shadow: 0 0 10px #00d9ff;
+}
+
+body.konami-active p {
+    display: none;  /* Cacher l'indice */
+}
+
+/* Message de succès */
+#konami-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: #00d9ff;
+    text-shadow: 0 0 20px #00d9ff;
+    animation: apparition 1s ease;
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
