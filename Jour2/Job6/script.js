@@ -43,7 +43,7 @@ function activerStyle() {
   //Création du message de succès du code Konami
   let message = document.createElement("div");
   message.id = "konami-message";
-  message.textContent = "🎮 Code Konami réussie !";
+  message.textContent = "🎮 Code Konami réussi !";
   document.body.appendChild(message);
 
   // Retirer le message après 3 secondes
