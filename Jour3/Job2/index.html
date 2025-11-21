@@ -6,9 +6,48 @@
     <title>Arc-En-CIel</title>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        #rainbow-container {
+            display: flex;
+            gap: 5px;
+            margin: 20px 0;
+        }
+        
+        #rainbow-container img {
+            width: 100px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        #rainbow-container img.selected {
+            border: 2px solid blue;
+        }
+        
+        #message {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     
+    <h1>Puzzle de l'arc-en-ciel</h1>
+
+    <button id="melanger">Mélanger</button>
+    <button id="verifier">Vérifier</button>
+
+    <div id="rainbow-container">
+        <img src="arc_en_ciel/arc1.png" data-order="1" alt="Arc 1">
+        <img src="arc_en_ciel/arc2.png" data-order="2" alt="Arc 2">
+        <img src="arc_en_ciel/arc3.png" data-order="3" alt="Arc 3">
+        <img src="arc_en_ciel/arc4.png" data-order="4" alt="Arc 4">
+        <img src="arc_en_ciel/arc5.png" data-order="5" alt="Arc 5">
+        <img src="arc_en_ciel/arc6.png" data-order="6" alt="Arc 6">
+    </div>
+
+    <p id="message">Vous avez gagné !</p>
+
     <script src="script.js"></script>
 </body>
 </html>
