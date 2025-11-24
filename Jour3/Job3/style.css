@@ -1,0 +1,40 @@
+#taquin-container {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    gap: 2px;
+    margin: 20px 0;
+    padding: 2px;
+}
+
+.piece {
+    width : 150px;
+    width : 150px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.piece img {
+    width: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.piece.vide {
+    background-color: #ccc;
+}
+
+#message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#recommencer {
+    display: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+}
