@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+</head>
+<body>
+
+    <h1>Filtre Pokémon</h1>
+
+    <form>
+        <label>ID : <input type="text" id="inputId" placeholder="Ex: 1"></label>
+        <br>
+        <label>Nom : <input type="text" id="inputNom" placeholder="Ex: Bulbizarre"></label>
+        <br>
+        <label>Type : 
+            <select id="inputType">
+                <option value="">-- Tous les types --</option>
+                <!--Les données sont remplies dynamiquement-->
+            </select>
+        </label>
+        <br>
+        <button type="button" id="btnFiltrer">Filtrer</button>
+    </form>
+    
+    <!-- Conteneur pour les résultats-->
+    <div id="resultats"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
