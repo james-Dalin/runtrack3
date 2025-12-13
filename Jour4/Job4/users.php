@@ -1,5 +1,4 @@
 <?php
-
 header('Content-Type: application/json');
 
 // ========== CONNEXION BDD ==========
@@ -20,7 +19,7 @@ $sql = "SELECT id, nom, prenom, email FROM utilisateurs";
 $result = $conn->query($sql);
 
 if (!$result) {
-    die(json_encode(['error' => 'Erreur requête:' . $conn->error]));
+    die(json_encode(['error' => 'Erreur requête: ' . $conn->error]));
 }
 
 // ========== CONSTRUIRE LE TABLEAU DE DONNÉES ==========
@@ -39,3 +38,4 @@ while ($row = $result->fetch_assoc()) {
 echo json_encode($users);
 
 $conn->close();
+?>
