@@ -28,7 +28,7 @@ function getConnection() {
 /**
  * Vérifie si l'utilisateur est connecté
  */
-function isLogginIn() {
+function isLoggedIn() {
   return isset($_SESSION['user_id']);
 }
 
@@ -36,7 +36,7 @@ function isLogginIn() {
  * Récupère l'utilisateur connecté
  */
 function getLoggedInUser() {
-  if (!isLogginIn()) {
+  if (!isLoggedIn()) {
     return null;
   }
 
