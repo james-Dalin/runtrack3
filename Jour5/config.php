@@ -54,4 +54,33 @@ function getLoggedInUser() {
 
   return null;
 }
+
+/**
+ * Définie un utilisateur comme connecté
+ */
+function loginUser($userId) {
+  $_SESSION['user_id'] = $userId;
+}
+
+/**
+ * Déconnecte l'utilisateur
+ */
+function logoutUser() {
+  unset($_SESSION['user_id']);
+  session_destroy();
+}
+
+/**
+ * Encode le mot de passe
+ */
+function hashPassword($password) {
+  return password_hash($password, PASSWORD_BCRYPT);
+}
+
+/**
+ * Vérifie le mot de passe
+ */
+function verifyPassword($password, $hash) {
+  return password_verify($password, $hash);
+}
 ?>
