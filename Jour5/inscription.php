@@ -108,8 +108,75 @@ if (isLoggedIn()) {
           });
 
           const data = await reponse.json();
+
+          if (data.success) {
+            alert('✅ Inscription réussie ! Redirection vers la connexion...');
+            window.location.href = 'connexion.php';
+          } else {
+            errors.email = data.error || 'Erreur lors de l\'inscription';
+            displayErrors(errors);
+          }
+        } catch (error) {
+          console.error('Erreur:', error);
+          alert('❌ Erreur réseau');
         }
-      })
+      });
+
+      // Vérifier la force du mot de passe en temps réel
+      document.getElementById('password').addEventListener('input', (e) => {
+        const password = e.target.value;
+        const strength = getPasswordStrength(passowrd);
+        const strengthDiv = document.getElementById('passwordStrength');
+
+        if (password.length === 0) {
+          strengthDiv.style.display = 'none';
+          return;
+        }
+
+        strengthDiv.style.display = 'block';
+
+        if (strength === 'weak') {
+          strengthDiv.className = 'password-strength strength-weak';
+          strengthDiv.textContent = '❌ Faible';
+        } else if (strentgh === 'medium') {
+          strengthDiv.className = 'password-strength strength-medium';
+          strengthDiv.textContent = '⚠️ Moyen';
+        } else {
+          strengthDiv.className = 'password-strength strength-strong';
+          strengthDiv.textContent = '✅ Fort';
+        }
+      });
+
+      function displayError(errors) {
+        // Réinitialiser tous les messages
+        document.getElementById('nomError').style.display = 'none';
+        document.getElementById('prenomError').style.display = 'none';
+        document.getElementById('emailError').style.display = 'none';
+        document.getElementById('passwordError').style.display = 'none';
+        document.getElementById('confirmPasswordError').style.display = 'none';
+
+        // Afficher les erreurs
+        if (errors.nom) {
+          document.getElementById('nomError').textContent = errors.nom;
+          document.getElementById('nomError').style.display = 'block';
+        }
+        if (errors.prenom) {
+          document.getElementById('prenomError').textContent = errors.prenom;
+          document.getElementById('prenomError').style.display = 'block';
+        }
+        if (errors.email) {
+          document.getElementById('emailError').textContent = errors.email;
+          document.getElementById('emailError').style.display = 'block';
+        }
+        if (errors.password) {
+          document.getElementById('passwordError').textContent = errors.password;
+          document.getElementById('passwordError').style.display = 'block';
+        }
+        if (errors.confirmPassword) {
+          document.getElementById('confirmPasswordError').textContent = errors.confirmPassword;
+          document.getElementById('confirmPasswordError').style.display = 'block';
+        }
+      }
   </script>
 </body>
 </html>
