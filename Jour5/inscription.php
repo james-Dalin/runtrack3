@@ -68,5 +68,48 @@ if (isLoggedIn()) {
   </div>
 
   <script src="validation.js"></script>
+  <script>
+      document.getElementById('registerForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Récupérer les valeurs
+        const nom = document.getElementById('nom').value.trim();
+        const prenom = document.getElementById('prenom').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        // Valider
+        const error = {};
+
+        if(!nom) errors.nom = 'Le nom est requis';
+        if (!prenom) errors.prenom = 'Le prénom est requis';
+        if (!email) errors.email = 'L\'email est requis';
+        if (!isValidEmail(email)) errors.email = 'Format email invalide';
+        if (!password) errors.password = 'Le mo de passe est requis';
+        if (password.length < 8) errors.password = 'Au minimum 8 caractères';
+        if (!hasPasswordStrength(password)) errors.password = 'Doit contenur majuscule, minuscule et chiffre';
+        if (password !== confirmPassword) errors.confirmPassword = 'Les mots de passe ne correspondent pas';
+
+        // Afficher les erreurs
+        displayErrors(errors);
+
+        // Si erreurs, arrêter
+        if (Object.keys(errors).length > 0) {
+          return;
+        }
+
+        // Envoyer au backend
+        try {
+          const response = await fetch('api_register.php', {
+            method: 'POST',
+            header: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ nom, prenom, email, password })
+          });
+
+          const data = await reponse.json();
+        }
+      })
+  </script>
 </body>
 </html>
