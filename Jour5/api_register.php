@@ -50,3 +50,12 @@ $hasPassword = hashPassword($password);
 // Insérer l'utilisateur
 $stmt = $conn->prepare("INSERT INTO utilisateurs (nom, prenom, email, password) VALUES (?, ?, ?, ?,)");
 $stmt->bind_param("ssss", $nom, $prenom, $email, $hashedPassword);
+
+if ($stmt->execute()) {
+    echo json_encode(['success' => true, 'message' => 'Inscription réussie']);
+} else {
+    echo json_encode(['success' => false, 'message' => 'Erreur lors de l\'inscription']);
+}
+
+$stmt->close();
+$conn->close();
