@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design - Media Queries</title>
+
+    <!-- ========== LIENS CONDITIONNELS DES CSS ========== -->
+    <!-- Style par défaut (< 1280px) -->
+    <link rel="stylesheet" id="respnsive-style" href="style4.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Responsive Design</h1>
+        <p class="info">Redimensionne ta fenêtre pour voir le changement de couleur !</p>
+
+        <div class="resolution-info">
+            <p>Résolution actuelle : <span id="width">0</span>px x <span id="height">0</span>px</p>
+            <p>feuille de style active : <span id="active-style">style4.css</span></p>
+        </div>
+
+        <div class="demo-box">
+            <h2>Boîte de Démonstration</h2>
+            <p>La couleur de fon change selon la largeur de l'écran !</p>
+        </div>
+    </div>
+
+    <!-- ========== JAVASCRIPT POUR CHANGER LES STYLES ========== -->
+     <script src="responsive.js"></script>
+</body>
+</html>
