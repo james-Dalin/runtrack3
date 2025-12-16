@@ -101,3 +101,16 @@ p {
 }
 
 /* < 1280px → Couleur #ffffff (Blanc) */
+@media screen and (max-width: 1279px) {
+    body {
+        background-color: #ffffff;
+    }
+
+    .info-box {
+        border-left-color: #333;
+    }
+
+    .container {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+}
