@@ -30,4 +30,18 @@ function updateStyle() {
         styleSheet = 'style1.css';
         styleName = 'style1.css';
     }
+
+    // Changer le lien du CSS
+    document.getElementById('responsive-style').href = styleSheet;
+
+    // Afficher quel CSS est actif
+    document.getElementById('active-style').textContent = styleName;
+
+    console.log(`✅ Chargement de style : ${styleName} (${width}px)`);
 }
+
+// ========== APPELER LA FONCTION AU CHARGEMENT ==========
+document.addEventListener('DOMContentLoaded', updateStyle);
+
+// ========== APPELER LA FONCTION À CHAQUE REDIMENSIONNEMENT ==========
+window.addEventListener('resize', updateStyle);
