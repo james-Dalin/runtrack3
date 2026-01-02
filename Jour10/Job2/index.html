@@ -81,6 +81,7 @@
         .progress-custom .progress-bar {
             background-color: #ffc107;
             height: 20px;
+            transition: width 0.3s;
         }
         
         /* Form input personnalisé */
@@ -113,11 +114,13 @@
         .pagination-custom .page-link {
             color: #0d6efd;
             border: 1px solid #dee2e6;
+            cursor: pointer;
         }
         
         .pagination-custom .page-item.active .page-link {
             background-color: #0d6efd;
             border-color: #0d6efd;
+            cursor: pointer;
         }
         
         /* Section content */
@@ -172,6 +175,17 @@
             text-decoration: underline;
             color: #0b5ed7;
         }
+        
+        /* Progress buttons */
+        .progress-btn {
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        /* Jumbotron container ID */
+        #jumbotronContent {
+            transition: all 0.3s;
+        }
     </style>
 </head>
 <body>
@@ -186,7 +200,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accueil</a>
+                        <a class="nav-link" href="https://www.laplateforme.com" id="accueilLink" target="_blank">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Units</a>
@@ -215,22 +229,24 @@
                     <div class="article-content">
                         <h5 class="fw-bold">Un Papillon</h5>
                         <p class="text-muted small">Un papillon, c'est un peu comme une chenille, mais avec des ailes. Ne pas ingérer.</p>
-                        <button class="btn btn-primary btn-sm w-100">Commander votre propre papillon</button>
+                        <button class="btn btn-primary btn-sm w-100" id="buyButterflyBtn" data-bs-toggle="modal" data-bs-target="#butterflyModal">
+                            Commander votre propre papillon
+                        </button>
                     </div>
                 </div>
 
                 <!-- Sidebar Menu -->
                 <div class="sidebar mb-4">
-                    <div class="sidebar-item active">Limbes</div>
-                    <div class="sidebar-item">Luxure</div>
-                    <div class="sidebar-item">Gourmandise</div>
-                    <div class="sidebar-item">Avarice</div>
-                    <div class="sidebar-item">Colere</div>
-                    <div class="sidebar-item">Heresie</div>
-                    <div class="sidebar-item">Violence</div>
-                    <div class="sidebar-item">Ruse et Tromperie</div>
-                    <div class="sidebar-item">Trahison</div>
-                    <div class="sidebar-item">Internet Explorer</div>
+                    <div class="sidebar-item active" data-content="limbes">Limbes</div>
+                    <div class="sidebar-item" data-content="luxure">Luxure</div>
+                    <div class="sidebar-item" data-content="gourmandise">Gourmandise</div>
+                    <div class="sidebar-item" data-content="avarice">Avarice</div>
+                    <div class="sidebar-item" data-content="colere">Colere</div>
+                    <div class="sidebar-item" data-content="heresie">Heresie</div>
+                    <div class="sidebar-item" data-content="violence">Violence</div>
+                    <div class="sidebar-item" data-content="ruse">Ruse et Tromperie</div>
+                    <div class="sidebar-item" data-content="trahison">Trahison</div>
+                    <div class="sidebar-item" data-content="explorer">Internet Explorer</div>
                 </div>
 
             </div>
@@ -240,22 +256,24 @@
                 
                 <!-- Section Principale -->
                 <div class="content-section mb-4">
-                    <h1 class="content-title">Bonjour, monde!</h1>
-                    <p class="content-subtitle">Il existe plusieurs visions du terme :</p>
+                    <h1 class="content-title" id="jumbotronTitle">Bonjour, monde!</h1>
+                    <p class="content-subtitle" id="jumbotronSubtitle">Il existe plusieurs visions du terme :</p>
                     
-                    <p class="content-text">
-                        le monde est la matière, l'espace et les phénomènes qui nous sont accessibles par les sens, l'expérience ou la raison.
-                    </p>
+                    <div id="jumbotronContent">
+                        <p class="content-text">
+                            le monde est la matière, l'espace et les phénomènes qui nous sont accessibles par les sens, l'expérience ou la raison.
+                        </p>
+                        
+                        <p class="content-text">
+                            Le sens le plus courant désigne notre planète, la Terre, avec ses habitants, et son environnement plus ou moins naturel.
+                        </p>
+                        
+                        <p class="content-text">
+                            Le sens étendu désigne l'univers dans son ensemble.
+                        </p>
+                    </div>
                     
-                    <p class="content-text">
-                        Le sens le plus courant désigne notre planète, la Terre, avec ses habitants, et son environnement plus ou moins naturel.
-                    </p>
-                    
-                    <p class="content-text">
-                        Le sens étendu désigne l'univers dans son ensemble.
-                    </p>
-                    
-                    <button class="btn btn-danger btn-sm">
+                    <button class="btn btn-danger btn-sm" id="rebootBtn">
                         Rebouter le Monde 🔄
                     </button>
 
@@ -263,9 +281,9 @@
                     <nav aria-label="Page navigation" class="mt-4">
                         <ul class="pagination pagination-custom justify-content-end">
                             <li class="page-item"><a class="page-link" href="#">«</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#" data-page="1">1</a></li>
+                            <li class="page-item active"><a class="page-link" href="#" data-page="2">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#" data-page="3">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">»</a></li>
                         </ul>
                     </nav>
@@ -279,9 +297,21 @@
         <div class="row mt-6 mb-4">
             <div class="col-12">
                 <h5 class="text-center mb-3">Installation de AI 9000</h5>
-                <div class="progress progress-custom mx-auto" style="max-width: 800px;">
-                    <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="d-flex justify-content-center align-items-center gap-3">
+                    <!-- Bouton gauche (régresser) -->
+                    <button class="btn btn-secondary btn-sm progress-btn" id="progressDecrement">←</button>
+                    
+                    <!-- Progress bar -->
+                    <div class="progress progress-custom mx-auto" style="width: 70%; max-width: 800px;">
+                        <div class="progress-bar" id="progressBar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    
+                    <!-- Bouton droite (progresser) -->
+                    <button class="btn btn-secondary btn-sm progress-btn" id="progressIncrement">→</button>
                 </div>
+                <p class="text-center small text-muted mt-2">
+                    <span id="progressPercentage">65</span>%
+                </p>
             </div>
         </div>
 
@@ -297,19 +327,19 @@
                     <div class="form-section">
                         <h5 class="mb-4">Recevez votre copie gratuite d'Internet 2!</h5>
                         
-                        <form>
+                        <form id="loginForm">
                             <!-- Email Input -->
                             <div class="mb-3">
                                 <div class="input-group">
                                     <span class="input-group-text">@</span>
-                                    <input type="text" class="form-control" placeholder="Login">
+                                    <input type="text" class="form-control" placeholder="Login" id="loginUsername">
                                 </div>
                             </div>
 
                             <!-- Password Input -->
                             <div class="mb-3">
                                 <div class="input-group">
-                                    <input type="password" class="form-control" placeholder="Mot de Passe">
+                                    <input type="password" class="form-control" placeholder="Mot de Passe" id="loginPassword">
                                     <span class="input-group-text">@example.com</span>
                                 </div>
                             </div>
@@ -332,7 +362,7 @@
                     <div class="form-section">
                         <h5 class="mb-4">Newsletter</h5>
                         
-                        <form>
+                        <form id="newsletterForm">
                             <!-- Email Address -->
                             <div class="mb-3">
                                 <label for="emailAddress" class="form-label-custom">Email address</label>
@@ -342,8 +372,8 @@
 
                             <!-- Password -->
                             <div class="mb-3">
-                                <label for="password" class="form-label-custom">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="">
+                                <label for="newsletterPassword" class="form-label-custom">Password</label>
+                                <input type="password" class="form-control" id="newsletterPassword" placeholder="">
                             </div>
 
                             <!-- Checkbox -->
@@ -355,7 +385,7 @@
                             </div>
 
                             <!-- Submit Button -->
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" id="newsletterSubmitBtn">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -364,8 +394,269 @@
         </div>
     </div>
 
+    <!-- ========== MODALES ========== -->
+
+    <!-- Modal Papillon -->
+    <div class="modal fade" id="butterflyModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmation d'achat 🦋</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Vous êtes sur le point de commander un magnifique papillon!</p>
+                    <p><strong>Détails:</strong></p>
+                    <ul>
+                        <li>Type: Papillon premium</li>
+                        <li>Couleur: Ailes dorées</li>
+                        <li>Livraison: 2-3 jours</li>
+                        <li>Prix: 9.99€</li>
+                    </ul>
+                    <p class="text-warning"><strong>⚠️ ATTENTION:</strong> Ne pas ingérer!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" id="confirmButterflyBtn">Confirmer l'achat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Formulaire Login -->
+    <div class="modal fade" id="loginFormModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Récapitulatif du Formulaire</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="formModalBody">
+                    <!-- Contenu généré par JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // ========== DONNÉES GLOBALES ==========
+        
+        // Citations de Blade Runner
+        const bladeRunnerQuotes = [
+            "I've seen things you people wouldn't believe... Attack ships on fire off the shoulder of Orion... I watched c-beams glitter in the dark near the Tannhauser gate. All those moments will be lost in time, like tears in rain.",
+            "All I want is to be let alone in peace, and all I'm offered is blood, vengeance and hate.",
+            "What seems to be your name? Deckard.",
+            "I want more life, father!",
+            "You better get your personal affairs in order.",
+            "I... want... more... life!"
+        ];
+
+        // Contenu des pages (pagination)
+        const pageContents = {
+            1: {
+                title: "Page 1: Les Fondamentaux",
+                content: `
+                    <p class="content-text">
+                        La première étape de toute grande quête est de comprendre ses fondamentaux.
+                    </p>
+                    <p class="content-text">
+                        Cette page vous explique les bases essentielles du monde numérique.
+                    </p>
+                    <p class="content-text">
+                        Bienvenue dans votre apprentissage!
+                    </p>
+                `
+            },
+            2: {
+                title: "Bonjour, monde!",
+                content: `
+                    <p class="content-text">
+                        le monde est la matière, l'espace et les phénomènes qui nous sont accessibles par les sens, l'expérience ou la raison.
+                    </p>
+                    <p class="content-text">
+                        Le sens le plus courant désigne notre planète, la Terre, avec ses habitants, et son environnement plus ou moins naturel.
+                    </p>
+                    <p class="content-text">
+                        Le sens étendu désigne l'univers dans son ensemble.
+                    </p>
+                `
+            },
+            3: {
+                title: "Page 3: L'Avenir",
+                content: `
+                    <p class="content-text">
+                        L'avenir est plein de possibilités infinies.
+                    </p>
+                    <p class="content-text">
+                        Chaque décision que vous prenez aujourd'hui façonne le monde de demain.
+                    </p>
+                    <p class="content-text">
+                        Êtes-vous prêt à relever le défi?
+                    </p>
+                `
+            }
+        };
+
+        // Couleurs aléatoires pour le spinner
+        const colors = [
+            '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
+            '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B88B', '#C0E8D4'
+        ];
+
+        // ========== 1. LIEN ACCUEIL (déjà implémenté en HTML) ==========
+        // Le lien accueil pointe vers https://www.laplateforme.com
+
+        // ========== 2. MODAL PAPILLON ==========
+        $('#confirmButterflyBtn').on('click', function() {
+            alert('✅ Bravo! Vous avez acheté un magnifique papillon!\n\nIl arrivera dans 2-3 jours. 🦋');
+            const modal = bootstrap.Modal.getInstance(document.getElementById('butterflyModal'));
+            modal.hide();
+        });
+
+        // ========== 3. REBOOTER LE MONDE (Citation aléatoire) ==========
+        $('#rebootBtn').on('click', function() {
+            const randomQuote = bladeRunnerQuotes[Math.floor(Math.random() * bladeRunnerQuotes.length)];
+            
+            $('#jumbotronTitle').text('Citation de Blade Runner');
+            $('#jumbotronSubtitle').text('');
+            $('#jumbotronContent').html(`
+                <p class="content-text" style="font-style: italic; color: #666;">
+                    "${randomQuote}"
+                </p>
+            `);
+        });
+
+        // ========== 4. PAGINATION ==========
+        $('.pagination-custom .page-link').on('click', function(e) {
+            const page = $(this).data('page');
+            
+            // Si pas de page data, ignorer
+            if (!page) return;
+            
+            e.preventDefault();
+            
+            // Mettre à jour le contenu
+            if (pageContents[page]) {
+                const content = pageContents[page];
+                $('#jumbotronTitle').text(content.title);
+                $('#jumbotronSubtitle').text('');
+                $('#jumbotronContent').html(content.content);
+            }
+            
+            // Mettre à jour l'active
+            $('.pagination-custom .page-item').removeClass('active');
+            $(this).closest('.page-item').addClass('active');
+        });
+
+        // ========== 5. SIDEBAR ITEMS (Actif au clic) ==========
+        $('.sidebar-item').on('click', function() {
+            $('.sidebar-item').removeClass('active');
+            $(this).addClass('active');
+            
+            console.log('✅ Item actif: ' + $(this).text());
+        });
+
+        // ========== 6. PROGRESS BAR ==========
+        let currentProgress = 65;
+
+        $('#progressIncrement').on('click', function() {
+            if (currentProgress < 100) {
+                currentProgress += 5;
+                updateProgressBar();
+            }
+        });
+
+        $('#progressDecrement').on('click', function() {
+            if (currentProgress > 0) {
+                currentProgress -= 5;
+                updateProgressBar();
+            }
+        });
+
+        function updateProgressBar() {
+            $('#progressBar').css('width', currentProgress + '%');
+            $('#progressPercentage').text(currentProgress);
+        }
+
+        // ========== 7. MODALE FORMULAIRE (D + G + C) ==========
+        let keyPressSequence = '';
+
+        $(document).on('keydown', function(e) {
+            const keyPressed = e.key.toUpperCase();
+            
+            // Ajouter à la séquence
+            keyPressSequence += keyPressed;
+            
+            // Garder seulement les 3 derniers caractères
+            if (keyPressSequence.length > 3) {
+                keyPressSequence = keyPressSequence.slice(-3);
+            }
+            
+            // Vérifier si la séquence est D G C
+            if (keyPressSequence === 'DGC') {
+                showFormModal();
+                keyPressSequence = ''; // Réinitialiser
+            }
+        });
+
+        function showFormModal() {
+            const username = $('#loginUsername').val() || 'Non rempli';
+            const password = $('#loginPassword').val() || 'Non rempli';
+            
+            const content = `
+                <div class="alert alert-info">
+                    <h6>📋 Données du Formulaire:</h6>
+                    <p><strong>Login:</strong> ${username}</p>
+                    <p><strong>Mot de Passe:</strong> ${'*'.repeat(password.length)}</p>
+                </div>
+                <p class="text-muted small">Les informations ont été capturées depuis le formulaire en bas à gauche.</p>
+            `;
+            
+            $('#formModalBody').html(content);
+            
+            const modal = new bootstrap.Modal(document.getElementById('loginFormModal'));
+            modal.show();
+        }
+
+        // ========== 8. NEWSLETTER FORM (Validation + Couleur Random) ==========
+        $('#newsletterForm').on('submit', function(e) {
+            e.preventDefault();
+            
+            const email = $('#emailAddress').val().trim();
+            const password = $('#newsletterPassword').val().trim();
+            
+            // Validation
+            if (email === '' || password === '') {
+                alert('❌ Email et mot de passe doivent être remplis!');
+                return;
+            }
+            
+            // Changer la couleur du progress bar aléatoirement
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            $('#progressBar').css('background-color', randomColor);
+            
+            alert(`✅ Formulaire soumis!\n\nEmail: ${email}\nCouleur du spinner changée en ${randomColor}`);
+            
+            // Réinitialiser le formulaire
+            this.reset();
+        });
+
+        // ========== INIT ==========
+        $(document).ready(function() {
+            console.log('✅ Tous les scripts sont prêts!');
+        });
+
+    </script>
 
 </body>
 </html>
