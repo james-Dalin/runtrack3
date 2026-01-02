@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Materialize</title>
+    
+    <!-- Materialize CSS CDN v1.0.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/materialize.min.css">
+    
+    <!-- Google Icons (Material Icons) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header>
+        
+        <!-- ========== NAVBAR PRINCIPALE ========== -->
+        <nav class="nav-extended deep-purple">
+            
+            <!-- Partie Supérieure (Toujours visible) -->
+            <div class="nav-wrapper">
+                
+                <!-- Brand/Logo -->
+                <a href="index.html" class="brand-logo center">
+                    <i class="material-icons">app_registration</i>
+                    <span style="margin-left: 10px;">La Plateforme</span>
+                </a>
+                
+                <!-- Bouton Menu Mobile (Hamburger) -->
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger right">
+                    <i class="material-icons">menu</i>
+                </a>
+
+                <!-- Menu Principal (Desktop - Cache sur mobile) -->
+                <ul class="right hide-on-med-and-down">
+                    
+                    <!-- Lien 1: Accueil -->
+                    <li>
+                        <a href="index.html" class="waves-effect waves-light">
+                            <i class="material-icons left">home</i>
+                            Accueil
+                        </a>
+                    </li>
+                    
+                    <!-- Lien 2: Inscription -->
+                    <li>
+                        <a href="index.html" class="waves-effect waves-light">
+                            <i class="material-icons left">person_add</i>
+                            Inscription
+                        </a>
+                    </li>
+                    
+                    <!-- Lien 3: Connexion -->
+                    <li>
+                        <a href="index.html" class="waves-effect waves-light">
+                            <i class="material-icons left">login</i>
+                            Connexion
+                        </a>
+                    </li>
+                    
+                    <!-- Lien 4: Rechercher -->
+                    <li>
+                        <a href="index.html" class="waves-effect waves-light">
+                            <i class="material-icons left">search</i>
+                            Rechercher
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- ========== BARRE TABS (Partie Inférieure) ========== -->
+            <div class="nav-content indigo darken-1">
+                <ul class="tabs tabs-transparent">
+                    
+                    <!-- Tab 1 -->
+                    <li class="tab">
+                        <a href="#tab1" class="active white-text">
+                            <i class="material-icons">info</i>
+                            Informations
+                        </a>
+                    </li>
+                    
+                    <!-- Tab 2 -->
+                    <li class="tab">
+                        <a href="#tab2" class="white-text">
+                            <i class="material-icons">security</i>
+                            Sécurité
+                        </a>
+                    </li>
+                    
+                    <!-- Tab 3 -->
+                    <li class="tab">
+                        <a href="#tab3" class="white-text">
+                            <i class="material-icons">help</i>
+                            Aide
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </nav>
+
+        <!-- ========== SIDENAV MOBILE ========== -->
+        <ul class="sidenav" id="mobile-nav">
+            
+            <!-- Header du Sidenav -->
+            <li>
+                <div class="user-view deep-purple">
+                    <div class="background">
+                        <img src="https://via.placeholder.com/500x300?text=Header+Mobile" alt="Banner" style="height: 100%; object-fit: cover;">
+                    </div>
+                    <span class="white-text email" style="display: block; padding: 16px;">
+                        <i class="material-icons left">account_circle</i>
+                        Bienvenue!
+                    </span>
+                </div>
+            </li>
+            
+            <!-- Liens Menu Mobile -->
+            <li><a href="index.html" class="waves-effect"><i class="material-icons">home</i>Accueil</a></li>
+            <li><a href="index.html" class="waves-effect"><i class="material-icons">person_add</i>Inscription</a></li>
+            <li><a href="index.html" class="waves-effect"><i class="material-icons">login</i>Connexion</a></li>
+            <li><a href="index.html" class="waves-effect"><i class="material-icons">search</i>Rechercher</a></li>
+            
+            <!-- Divider -->
+            <li><div class="divider"></div></li>
+            
+            <!-- Liens Supplémentaires -->
+            <li><a href="index.html" class="waves-effect"><i class="material-icons">settings</i>Paramètres</a></li>
+            <li><a href="index.html" class="waves-effect"><i class="material-icons">info</i>À Propos</a></li>
+
+        </ul>
+
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="container" style="margin: 40px auto; min-height: 60vh;">
+        
+        <!-- Section Tab 1 -->
+        <div id="tab1" class="col s12" style="display: block;">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">
+                        <i class="material-icons left">info</i>
+                        Informations
+                    </span>
+                    <p>
+                        Bienvenue sur notre plateforme d'inscription. Cette page vous permet de créer un compte 
+                        rapidement et facilement. Remplissez le formulaire avec vos informations personnelles.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Tab 2 -->
+        <div id="tab2" class="col s12" style="display: none;">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">
+                        <i class="material-icons left">security</i>
+                        Sécurité
+                    </span>
+                    <p>
+                        Vos données sont sécurisées et chiffrées. Nous utilisons les derniers protocoles de sécurité
+                        pour protéger votre compte. Votre mot de passe est haché et stocké de manière sécurisée.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Tab 3 -->
+        <div id="tab3" class="col s12" style="display: none;">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">
+                        <i class="material-icons left">help</i>
+                        Aide & Support
+                    </span>
+                    <p>
+                        Besoin d'aide? Consultez notre documentation ou contactez notre équipe de support.
+                        Nous sommes disponibles 24/7 pour vous aider.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ========== FOOTER STYLISÉ ========== -->
+    <footer class="page-footer deep-purple">
+        
+        <!-- ========== CONTENU PRINCIPAL DU FOOTER ========== -->
+        <div class="container">
+            <div class="row">
+                
+                <!-- ========== COLONNE 1: NAVIGATION ========== -->
+                <div class="col l4 m6 s12">
+                    <h5 class="white-text">
+                        <i class="material-icons left">navigation</i>
+                        Navigation
+                    </h5>
+                    <ul>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">home</i>
+                                Accueil
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">person_add</i>
+                                Inscription
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">login</i>
+                                Connexion
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">search</i>
+                                Rechercher
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ========== COLONNE 2: RESSOURCES ========== -->
+                <div class="col l4 m6 s12">
+                    <h5 class="white-text">
+                        <i class="material-icons left">library_books</i>
+                        Ressources
+                    </h5>
+                    <ul>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">description</i>
+                                Documentation
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">school</i>
+                                Tutoriels
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">article</i>
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">help</i>
+                                FAQ
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ========== COLONNE 3: LÉGAL ========== -->
+                <div class="col l4 m12 s12">
+                    <h5 class="white-text">
+                        <i class="material-icons left">info</i>
+                        Légal
+                    </h5>
+                    <ul>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">description</i>
+                                Conditions d'utilisation
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">security</i>
+                                Politique de confidentialité
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">cookie</i>
+                                Gestion des cookies
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="grey-text text-lighten-3 waves-effect">
+                                <i class="tiny material-icons left">phone</i>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ========== FOOTER COPYRIGHT (Barre Inférieure) ========== -->
+        <div class="footer-copyright indigo darken-2">
+            <div class="container">
+                <div class="row">
+                    
+                    <!-- Texte Copyright -->
+                    <div class="col s12 m8">
+                        <span class="white-text">
+                            © 2026 La Plateforme - Tous droits réservés
+                        </span>
+                    </div>
+                    
+                    <!-- Réseaux Sociaux -->
+                    <div class="col s12 m4 right-align">
+                        <a href="#" class="white-text waves-effect">
+                            <i class="tiny material-icons">facebook</i>
+                        </a>
+                        <a href="#" class="white-text waves-effect" style="margin-left: 10px;">
+                            <i class="tiny material-icons">info</i>
+                        </a>
+                        <a href="#" class="white-text waves-effect" style="margin-left: 10px;">
+                            <i class="tiny material-icons">mail</i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- ========== MATERIALIZE JS ========== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/materialize.min.js"></script>
+
+    <!-- ========== INITIALISATION JS ========== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // ========== INITIALISER SIDENAV ========== 
+            const sidenavElements = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(sidenavElements);
+
+            // ========== INITIALISER TABS ========== 
+            const tabElements = document.querySelectorAll('.tabs');
+            M.Tabs.init(tabElements);
+
+        });
+    </script>
+
+</body>
+</html>

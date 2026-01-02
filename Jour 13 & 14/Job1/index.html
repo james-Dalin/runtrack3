@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Materialize</title>
+    
+    <!-- Materialize CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/materialize.min.css">
+    
+    <!-- Google Icons (Pour Materialize) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* ========== HEADER & NAV ========== */
+        nav {
+            background-color: #263238;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .brand-logo {
+            font-weight: 700;
+            font-size: 24px;
+            padding-left: 20px;
+            color: #fff;
+        }
+
+        nav ul li a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #4dd0e1;
+        }
+
+        /* ========== FORMULAIRE ========== */
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            width: 100%;
+            max-width: 700px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-container h2 {
+            color: #263238;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .form-container p {
+            color: #999;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        /* ========== SECTIONS DE FORMULAIRE ========== */
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 20px;
+        }
+
+        .form-section h5 {
+            color: #263238;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-section h5 i {
+            color: #667eea;
+            font-size: 20px;
+        }
+
+        /* ========== INPUTS TEXT/EMAIL ========== */
+        .input-field {
+            margin-bottom: 20px;
+        }
+
+        .input-field input {
+            border-bottom: 2px solid #e0e0e0 !important;
+            transition: all 0.3s;
+        }
+
+        .input-field input:focus {
+            border-bottom: 2px solid #667eea !important;
+            box-shadow: none !important;
+        }
+
+        .input-field label {
+            color: #999;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .input-field label.active {
+            color: #667eea;
+        }
+
+        /* ========== RADIOS ========== */
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .radio-group input[type="radio"]:checked + span {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* ========== CHECKBOXES ========== */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ========== BOUTON ========== */
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 30px !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s !important;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3) !important;
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background-color: #263238;
+            padding: 30px 0;
+            text-align: center;
+            color: white;
+            margin-top: auto;
+        }
+
+        footer.page-footer {
+            margin: 0;
+        }
+
+        footer .footer-copyright {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            font-size: 12px;
+        }
+
+        footer ul li a {
+            color: #e0e0e0;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        footer ul li a:hover {
+            color: #4dd0e1;
+        }
+
+        /* ========== SUCCESS MESSAGE ========== */
+        .success-message {
+            background-color: #4dd0e1;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .form-container h2 {
+                font-size: 22px;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .checkbox-group {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            nav .brand-logo {
+                font-size: 20px;
+                padding-left: 15px;
+            }
+
+            nav ul li a {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 10px;
+            }
+
+            .form-container {
+                padding: 20px 15px;
+            }
+
+            .form-container h2 {
+                font-size: 20px;
+            }
+
+            footer ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header>
+        <!-- ========== NAVBAR ========== -->
+        <nav>
+            <div class="nav-wrapper">
+                <!-- Brand -->
+                <a href="index.html" class="brand-logo">
+                    <i class="material-icons" style="vertical-align: middle; margin-right: 10px;">app_registration</i>
+                    Inscription
+                </a>
+                
+                <!-- Menu Burger (Mobile) -->
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>
+                </a>
+                
+                <!-- Menu Principal (Desktop) -->
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="index.html">
+                            <i class="material-icons left">home</i>
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            <i class="material-icons left">person_add</i>
+                            Inscription
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            <i class="material-icons left">login</i>
+                            Connexion
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            <i class="material-icons left">search</i>
+                            Rechercher
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- ========== SIDENAV (Mobile) ========== -->
+        <ul class="sidenav" id="mobile-demo">
+            <li>
+                <h4 class="center-align" style="color: #263238; margin-top: 20px;">Menu</h4>
+            </li>
+            <li><a href="index.html"><i class="material-icons">home</i>Accueil</a></li>
+            <li><a href="index.html"><i class="material-icons">person_add</i>Inscription</a></li>
+            <li><a href="index.html"><i class="material-icons">login</i>Connexion</a></li>
+            <li><a href="index.html"><i class="material-icons">search</i>Rechercher</a></li>
+            <li><hr></li>
+            <li><small class="grey-text text-darken-1" style="display: block; padding: 15px;">© 2026 - Tous droits réservés</small></li>
+        </ul>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main>
+        <div class="form-container">
+            
+            <!-- Message de Succès -->
+            <div class="success-message" id="successMessage">
+                ✅ Inscription réussie! Merci de vous être inscrit.
+            </div>
+
+            <!-- Titre -->
+            <h2>Créer un Compte</h2>
+            <p>Rejoignez notre communauté en quelques minutes</p>
+
+            <!-- ========== FORMULAIRE ========== -->
+            <form id="registrationForm">
+
+                <!-- ========== SECTION 1: CIVILITÉ ========== -->
+                <div class="form-section">
+                    <h5>
+                        <i class="material-icons">person</i>
+                        Civilité
+                    </h5>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="civilite" value="Monsieur" required>
+                            <span>👨 Monsieur</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="civilite" value="Madame" required>
+                            <span>👩 Madame</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="civilite" value="Autre" required>
+                            <span>🤝 Autre</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- ========== SECTION 2: IDENTITÉ ========== -->
+                <div class="form-section">
+                    <h5>
+                        <i class="material-icons">badge</i>
+                        Informations Personnelles
+                    </h5>
+
+                    <!-- Prénom -->
+                    <div class="input-field">
+                        <input 
+                            type="text" 
+                            id="prenom" 
+                            name="prenom"
+                            class="validate"
+                            required
+                        >
+                        <label for="prenom">Prénom</label>
+                    </div>
+
+                    <!-- Nom -->
+                    <div class="input-field">
+                        <input 
+                            type="text" 
+                            id="nom" 
+                            name="nom"
+                            class="validate"
+                            required
+                        >
+                        <label for="nom">Nom</label>
+                    </div>
+
+                    <!-- Adresse -->
+                    <div class="input-field">
+                        <input 
+                            type="text" 
+                            id="adresse" 
+                            name="adresse"
+                            class="validate"
+                            required
+                        >
+                        <label for="adresse">Adresse</label>
+                    </div>
+                </div>
+
+                <!-- ========== SECTION 3: EMAIL ========== -->
+                <div class="form-section">
+                    <h5>
+                        <i class="material-icons">email</i>
+                        Adresse Email
+                    </h5>
+                    <div class="input-field">
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email"
+                            class="validate"
+                            required
+                        >
+                        <label for="email">Email</label>
+                        <span class="helper-text" data-error="Email invalide" data-success="Email valide"></span>
+                    </div>
+                </div>
+
+                <!-- ========== SECTION 4: MOT DE PASSE ========== -->
+                <div class="form-section">
+                    <h5>
+                        <i class="material-icons">lock</i>
+                        Sécurité
+                    </h5>
+
+                    <!-- Mot de Passe -->
+                    <div class="input-field">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password"
+                            class="validate"
+                            minlength="8"
+                            required
+                        >
+                        <label for="password">Mot de Passe</label>
+                        <span class="helper-text">Minimum 8 caractères</span>
+                    </div>
+
+                    <!-- Confirmation Mot de Passe -->
+                    <div class="input-field">
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword"
+                            class="validate"
+                            required
+                        >
+                        <label for="confirmPassword">Confirmer le Mot de Passe</label>
+                    </div>
+
+                    <!-- Indicateur de Force -->
+                    <div style="margin-top: 15px;">
+                        <p style="font-size: 12px; color: #999; margin-bottom: 5px;">Force du mot de passe:</p>
+                        <div style="height: 6px; background-color: #e0e0e0; border-radius: 3px; overflow: hidden;">
+                            <div id="passwordStrength" style="height: 100%; width: 0%; background-color: #ff6f6f; border-radius: 3px; transition: all 0.3s;"></div>
+                        </div>
+                        <small id="strengthText" style="color: #ff6f6f; font-weight: 600;">Faible</small>
+                    </div>
+                </div>
+
+                <!-- ========== SECTION 5: PASSIONS ========== -->
+                <div class="form-section">
+                    <h5>
+                        <i class="material-icons">favorite</i>
+                        Vos Passions
+                    </h5>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="passions" value="informatique">
+                            <span>💻 Informatique</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="passions" value="voyages">
+                            <span>✈️ Voyages</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="passions" value="sport">
+                            <span>⚽ Sport</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="passions" value="lecture">
+                            <span>📚 Lecture</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- ========== BOUTON SOUMETTRE ========== -->
+                <button type="submit" class="btn waves-effect waves-light">
+                    <i class="material-icons left">check</i>
+                    S'Inscrire
+                </button>
+
+            </form>
+
+            <!-- Lien Connexion -->
+            <p style="text-align: center; margin-top: 20px; color: #999; font-size: 13px;">
+                Déjà inscrit? 
+                <a href="index.html" style="color: #667eea; font-weight: 600;">Se connecter</a>
+            </p>
+
+        </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Navigation</h5>
+                    <ul>
+                        <li><a href="index.html" class="grey-text text-lighten-3">Accueil</a></li>
+                        <li><a href="index.html" class="grey-text text-lighten-3">Inscription</a></li>
+                        <li><a href="index.html" class="grey-text text-lighten-3">Connexion</a></li>
+                        <li><a href="index.html" class="grey-text text-lighten-3">Rechercher</a></li>
+                    </ul>
+                </div>
+                <div class="col l6 s12">
+                    <h5 class="white-text">Informations</h5>
+                    <ul>
+                        <li><a href="index.html" class="grey-text text-lighten-3">À propos</a></li>
+                        <li><a href="index.html" class="grey-text text-lighten-3">Conditions</a></li>
+                        <li><a href="index.html" class="grey-text text-lighten-3">Confidentialité</a></li>
+                        <li><a href="index.html" class="grey-text text-lighten-3">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2026 Inscription Materialize - Tous droits réservés
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <!-- Materialize JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/materialize.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        $(document).ready(function() {
+            
+            // Initialiser Sidenav (Menu Mobile)
+            const sidenav = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(sidenav);
+
+            // Initialiser inputs Materialize
+            M.updateTextFields();
+
+            // ========== PASSWORD STRENGTH ========== 
+            $('#password').on('input', function() {
+                const password = $(this).val();
+                const strength = getPasswordStrength(password);
+                const strengthBar = $('#passwordStrength');
+                const strengthText = $('#strengthText');
+
+                let width = 0;
+                let color = '#ff6f6f';
+                let text = 'Faible';
+
+                if (strength >= 2) {
+                    width = 50;
+                    color = '#ffa500';
+                    text = 'Moyen';
+                }
+                if (strength >= 3) {
+                    width = 75;
+                    color = '#ffeb3b';
+                    text = 'Bon';
+                }
+                if (strength >= 4) {
+                    width = 100;
+                    color = '#4caf50';
+                    text = 'Fort';
+                }
+
+                strengthBar.css({
+                    'width': width + '%',
+                    'background-color': color
+                });
+                strengthText.css('color', color).text(text);
+            });
+
+            // ========== FORM SUBMISSION ========== 
+            $('#registrationForm').on('submit', function(e) {
+                e.preventDefault();
+
+                // Récupérer les données
+                const formData = {
+                    civilite: $('input[name="civilite"]:checked').val(),
+                    prenom: $('#prenom').val(),
+                    nom: $('#nom').val(),
+                    adresse: $('#adresse').val(),
+                    email: $('#email').val(),
+                    password: $('#password').val(),
+                    confirmPassword: $('#confirmPassword').val(),
+                    passions: $('input[name="passions"]:checked').map(function() {
+                        return $(this).val();
+                    }).get()
+                };
+
+                // Validations
+                if (!formData.civilite) {
+                    M.toast({html: '❌ Veuillez sélectionner une civilité'});
+                    return;
+                }
+
+                if (!formData.prenom || !formData.nom || !formData.adresse) {
+                    M.toast({html: '❌ Veuillez remplir tous les champs obligatoires'});
+                    return;
+                }
+
+                if (formData.password !== formData.confirmPassword) {
+                    M.toast({html: '❌ Les mots de passe ne correspondent pas'});
+                    return;
+                }
+
+                if (formData.password.length < 8) {
+                    M.toast({html: '❌ Le mot de passe doit contenir au minimum 8 caractères'});
+                    return;
+                }
+
+                // Si tout est valide
+                console.log('Formulaire validé:', formData);
+
+                // Afficher message de succès
+                $('#successMessage').addClass('show');
+
+                // Réinitialiser le formulaire
+                setTimeout(() => {
+                    $('#registrationForm')[0].reset();
+                    M.updateTextFields();
+                    $('#successMessage').removeClass('show');
+                }, 2000);
+
+                // Toast Materialize
+                M.toast({html: '✅ Inscription réussie!'});
+            });
+
+        });
+
+        // ========== FONCTION PASSWORD STRENGTH ========== 
+        function getPasswordStrength(password) {
+            let strength = 0;
+            if (password.length >= 8) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[!@#$%^&*]/.test(password)) strength++;
+            return strength;
+        }
+    </script>
+
+</body>
+</html>
