@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grille Bootstrap Responsive</title>
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container-custom {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Styles des boxes */
+        .box {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Couleurs */
+        .box-cyan {
+            background-color: #5DADE2;
+            background: linear-gradient(135deg, #5DADE2 0%, #3498DB 100%);
+        }
+        
+        .box-blue {
+            background-color: #6C7DD8;
+            background: linear-gradient(135deg, #6C7DD8 0%, #5B6BC5 100%);
+        }
+        
+        .box-purple {
+            background-color: #BB8FCE;
+            background: linear-gradient(135deg, #BB8FCE 0%, #A569B6 100%);
+        }
+        
+        .box-orange {
+            background-color: #D17D7D;
+            background: linear-gradient(135deg, #D17D7D 0%, #C96969 100%);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .box {
+                min-height: 80px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .box {
+                min-height: 70px;
+                font-size: 14px;
+            }
+        }
+        
+        /* Indicateur responsive (pour debug) */
+        .responsive-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .page-title h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .page-title p {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== TITRE ========== -->
+    <div class="page-title">
+        <h1>🎨 Grille Bootstrap Responsive</h1>
+        <p>Redimensionnez votre navigateur pour voir la transformation!</p>
+    </div>
+
+    <!-- ========== CONTAINER PRINCIPAL ========== -->
+    <div class="container-custom">
+        
+        <!-- ========== SECTION 1: GRANDE BOX CYAN ========== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="box box-cyan">
+                    Boîte Cyan Grande (100%)
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== SECTION 2: TROIS BOXES BLEU ========== -->
+        <!-- Desktop: 3 colonnes (col-lg-4) -->
+        <!-- Mobile: 1 colonne (col-12) -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="box box-blue">
+                    Boîte Bleu 1
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="box box-blue">
+                    Boîte Bleu 2
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="box box-blue">
+                    Boîte Bleu 3
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== SECTION 3: 2 BOXES VIOLET ========== -->
+        <!-- Desktop: 8 colonnes + 4 colonnes (col-lg-8 + col-lg-4) -->
+        <!-- Mobile: 1 colonne chacun (col-12) -->
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="box box-purple">
+                    Boîte Violette Grande (66%)
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="box box-purple">
+                    Boîte Violette Petite (33%)
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== SECTION 4: TROIS BOXES ORANGE ESPACÉES ========== -->
+        <!-- Desktop: 3 colonnes avec offsets pour l'espacement -->
+        <!-- Mobile: 1 colonne chacun -->
+        <div class="row">
+            <!-- Première box Orange -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="box box-orange">
+                    Orange 1
+                </div>
+            </div>
+            
+            <!-- Espace vide (visible seulement sur lg) -->
+            <div class="col-lg-2 d-none d-lg-block"></div>
+            
+            <!-- Deuxième box Orange -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="box box-orange">
+                    Orange 2
+                </div>
+            </div>
+            
+            <!-- Espace vide (visible seulement sur lg) -->
+            <div class="col-lg-1 d-none d-lg-block"></div>
+            
+            <!-- Troisième box Orange -->
+            <div class="col-lg-3 col-md-12 col-sm-12">
+                <div class="box box-orange">
+                    Orange 3
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========== INDICATEUR RESPONSIVE ========== -->
+    <div class="responsive-indicator">
+        <div id="breakpointIndicator">Taille: Desktop (≥992px)</div>
+        <div style="font-size: 11px; margin-top: 5px; opacity: 0.8;">
+            Largeur: <span id="widthDisplay">0</span>px
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script Responsive -->
+    <script>
+        // Fonction pour mettre à jour l'indicateur responsive
+        function updateResponsiveIndicator() {
+            const width = window.innerWidth;
+            const indicator = document.getElementById('breakpointIndicator');
+            const widthDisplay = document.getElementById('widthDisplay');
+            
+            widthDisplay.textContent = width;
+            
+            if (width >= 1200) {
+                indicator.textContent = 'Taille: XL (≥1200px) - Très Grand Écran';
+            } else if (width >= 992) {
+                indicator.textContent = 'Taille: LG (≥992px) - Desktop';
+            } else if (width >= 768) {
+                indicator.textContent = 'Taille: MD (≥768px) - Tablette';
+            } else if (width >= 576) {
+                indicator.textContent = 'Taille: SM (≥576px) - Petit Écran';
+            } else {
+                indicator.textContent = 'Taille: XS (<576px) - Mobile';
+            }
+        }
+        
+        // Appeler au chargement et au redimensionnement
+        window.addEventListener('load', updateResponsiveIndicator);
+        window.addEventListener('resize', updateResponsiveIndicator);
+    </script>
+
+</body>
+</html>
