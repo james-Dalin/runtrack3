@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "alice@laplateforme.com",
+      "password": "hashed_password_1",
+      "fullName": "Alice Dupont",
+      "role": "student",
+      "createdAt": "2025-12-01"
+    },
+    {
+      "id": 2,
+      "email": "bob@laplateforme.com",
+      "password": "hashed_password_2",
+      "fullName": "Bob Martin",
+      "role": "moderator",
+      "createdAt": "2025-11-15"
+    },
+    {
+      "id": 3,
+      "email": "admin@laplateforme.com",
+      "password": "hashed_password_3",
+      "fullName": "Admin Admin",
+      "role": "admin",
+      "createdAt": "2025-10-01"
+    }
+  ],
+  "attendance_requests": [
+    {
+      "id": 1,
+      "userId": 1,
+      "date": "2026-01-15",
+      "status": "pending",
+      "requestedAt": "2026-01-02T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "date": "2026-01-20",
+      "status": "approved",
+      "requestedAt": "2026-01-02T09:15:00Z"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "date": "2026-01-15",
+      "status": "rejected",
+      "requestedAt": "2025-12-30T14:00:00Z"
+    }
+  ],
+  "statistics": {
+    "totalStudents": 150,
+    "totalModerators": 5,
+    "totalAdmins": 2
+  }
+}
