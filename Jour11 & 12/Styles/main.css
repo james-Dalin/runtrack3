@@ -1,0 +1,74 @@
+/* ========== VARIABLES & GLOBAL STYLES ========== */
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+html, body {
+    height: 100%;
+}
+
+/* Utilities */
+.border-left-primary {
+    border-left: 4px solid var(--primary-color) !important;
+}
+
+.border-left-warning {
+    border-left: 4px solid var(--warning-color) !important;
+}
+
+.border-left-success {
+    border-left: 4px solid var(--success-color) !important;
+}
+
+.border-left-danger {
+    border-left: 4px solid var(--danger-color) !important;
+}
+
+.alert-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* Transitions */
+button, a {
+    transition: var(--transition);
+}
+
+button:hover, a:hover {
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .d-none-mobile {
+        display: none !important;
+    }
+}

@@ -1,0 +1,82 @@
+/* ========== DASHBOARD ========== */
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s;
+    background-color: white;
+}
+
+.calendar-day:hover {
+    border-color: #667eea;
+    background-color: #f8f9fa;
+}
+
+.calendar-day.other-month {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.calendar-day.past {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f8f9fa;
+}
+
+.calendar-day.selected {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+.calendar-day.pending {
+    background-color: #ffc107;
+    color: white;
+    border-color: #ffc107;
+}
+
+.calendar-day.approved {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+.calendar-day.rejected {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+.request-card {
+    border-left: 4px solid #667eea;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+}
+
+.request-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .calendar-grid {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
+    
+    .calendar-day {
+        font-size: 12px;
+    }
+}
